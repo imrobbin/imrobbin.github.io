@@ -1,0 +1,55 @@
+<!-- <menu class="main-menu">
+
+  <mat-nav-list class="main-menu_nav">
+    <ng-container *ngFor="let folder of folders">
+      <mat-divider></mat-divider>
+      <a mat-list-item>{{ folder.name }}</a>
+    </ng-container>
+    <ng-container *ngFor="let note of notes">
+      <mat-divider></mat-divider>
+      <a mat-list-item>{{ note.name }}</a>
+    </ng-container>
+  </mat-nav-list>
+</menu>
+
+<div class="main-container">
+  <span>Hi, I'm Ravindra web developer</span>
+  <span>Front End Developer</span>
+  <span>Ionic Mobile App Developer</span>
+</div> -->
+<div
+  class="main-container"
+  [class.layout-is-mobile]="(isHandset$ | async) === true"
+>
+  <!-- <mat-toolbar color="primary" class="main-toolbar">
+    <button mat-icon-button (click)="sideNavBar.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="main-app-name">Responsive App</h1>
+  </mat-toolbar> [fixedInViewport]="(isHandset$ | async) === true" [fixedTopGap]="(isHandset$ | async) ? 56 : 0" [style.marginTop.px]="(isHandset$ | async) ? 56 : 0"
+-->
+
+  <mat-sidenav-container class="main-sidenav-container">
+    <mat-sidenav
+      class="main-sidenav"
+      #sideNavBar
+      [fixedInViewport]="true"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false"
+    >
+      <div class="main-sidenav-menu_top">
+        <span class="logo">Web Developer</span>
+      </div>
+
+      <mat-nav-list class="main-sidenav-menu_nav">
+        <a *ngFor="let folder of folders" mat-list-item>{{ folder.name }}</a>
+        <a *ngFor="let note of notes" mat-list-item>{{ note.name }}</a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <p><button mat-button (click)="sideNavBar.toggle()">Toggle</button></p>
+      <p *ngFor="let content of fillerContent">{{ content }}</p>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

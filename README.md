@@ -1,5 +1,6 @@
 # [Imrobbin](https://imrobbin.github.io/) My Portfolio
 
+https://www.grilledpixels.com/articles/
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.1.
 
 ## Development server
