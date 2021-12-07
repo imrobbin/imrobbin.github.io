@@ -22,9 +22,24 @@
           <span class="capitalize">{{ path.label }}</span>
         </a>
 
-        <mat-list-item role="listitem"
-          >icon for dark/light mode at center</mat-list-item
-        >
+        <mat-list-item role="listitem" class="center">
+          <mat-icon
+            aria-hidden="false"
+            aria-label="dark_mode icon"
+            fontSet="material-icons-round"
+          >
+            dark_mode
+          </mat-icon>
+        </mat-list-item>
+        <mat-list-item role="listitem" class="center">
+          <mat-icon
+            aria-hidden="false"
+            aria-label="light_mode icon"
+            fontSet="material-icons"
+          >
+            light_mode
+          </mat-icon>
+        </mat-list-item>
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
