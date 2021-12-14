@@ -1,3 +1,4 @@
+<!-- <div class="main-container" [class.light-theme]="isLight"> -->
 <div class="main-container">
   <mat-sidenav-container class="main-sidenav-container">
     <!-- [style.marginTop.px]="mobileQuery.matches ? 56 : 0" -->
@@ -22,22 +23,17 @@
           <span class="capitalize">{{ path.label }}</span>
         </a>
 
-        <mat-list-item role="listitem" class="center">
-          <mat-icon
-            aria-hidden="false"
-            aria-label="dark_mode icon"
-            fontSet="material-icons-round"
-          >
-            dark_mode
-          </mat-icon>
-        </mat-list-item>
-        <mat-list-item role="listitem" class="center">
-          <mat-icon
-            aria-hidden="false"
-            aria-label="light_mode icon"
-            fontSet="material-icons"
-          >
-            light_mode
+        <mat-list-item
+          role="listitem"
+          class="center"
+          (click)="toggleTheme()"
+          matTooltip="Select theme"
+        >
+          <mat-icon aria-hidden="false" aria-label="theme mode icon">
+            <span *ngIf="isDark" class="material-icons"> light_mode </span>
+            <span *ngIf="!isDark" class="material-icons-round">
+              dark_mode
+            </span>
           </mat-icon>
         </mat-list-item>
       </mat-nav-list>
