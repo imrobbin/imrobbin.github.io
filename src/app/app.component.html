@@ -1,42 +1,88 @@
-<!-- <div class="main-container" [class.light-theme]="isLight"> -->
-<div class="main-container">
-  <mat-sidenav-container class="main-sidenav-container">
-    <!-- [style.marginTop.px]="mobileQuery.matches ? 56 : 0" -->
+<div class="main-container" [class.layout-is-mobile]="mobileQuery.matches">
+  <mat-toolbar
+    class="main-toolbar mobileNavBarMenuList"
+    *ngIf="mobileQuery.matches"
+  >
+    <mat-nav-list>
+      <a mat-list-item routerLink="/">
+        <span>Web Developer</span>
+      </a>
+    </mat-nav-list>
+
+    <mat-nav-list class="flexRow">
+      <a
+        mat-list-item
+        *ngFor="let path of paths"
+        [routerLink]="path.path"
+        routerLinkActive="active-list-item"
+      >
+        <span class="capitalize">{{ path.label }}</span>
+      </a>
+    </mat-nav-list>
+
+    <mat-nav-list>
+      <mat-list-item
+        role="listitem"
+        class="center"
+        (click)="toggleTheme()"
+        matTooltip="Select theme"
+      >
+        <mat-icon aria-hidden="false" aria-label="switch theme icon">
+          <span *ngIf="isDark" class="material-icons toggle"> light_mode </span>
+          <span *ngIf="!isDark" class="material-icons-round toggle">
+            dark_mode
+          </span>
+        </mat-icon>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-toolbar>
+  <mat-sidenav-container
+    class="main-sidenav-container"
+    [style.marginTop.px]="mobileQuery.matches ? 56 : 0"
+  >
     <mat-sidenav
-      class="main-sidenav"
-      #sidenav
+      class="sideNavBar"
       [mode]="mobileQuery.matches ? 'over' : 'side'"
       [fixedInViewport]="mobileQuery.matches"
       fixedTopGap="56"
       [opened]="!mobileQuery.matches"
     >
-      <mat-nav-list class="main-sidenav-menu_nav">
-        <a mat-list-item routerLink="/">
-          <span>Web Developer</span>
-        </a>
-        <a
-          *ngFor="let path of paths"
-          mat-list-item
-          [routerLink]="path.path"
-          routerLinkActive="active-list-item"
-        >
-          <span class="capitalize">{{ path.label }}</span>
-        </a>
+      <mat-toolbar class="sideNavBarMenuNavList">
+        <mat-nav-list>
+          <a mat-list-item routerLink="/">
+            <span>Web Developer</span>
+          </a>
+        </mat-nav-list>
 
-        <mat-list-item
-          role="listitem"
-          class="center"
-          (click)="toggleTheme()"
-          matTooltip="Select theme"
-        >
-          <mat-icon aria-hidden="false" aria-label="theme mode icon">
-            <span *ngIf="isDark" class="material-icons"> light_mode </span>
-            <span *ngIf="!isDark" class="material-icons-round">
-              dark_mode
-            </span>
-          </mat-icon>
-        </mat-list-item>
-      </mat-nav-list>
+        <mat-nav-list>
+          <a
+            mat-list-item
+            *ngFor="let path of paths"
+            [routerLink]="path.path"
+            routerLinkActive="active-list-item"
+          >
+            <span class="capitalize">{{ path.label }}</span>
+          </a>
+        </mat-nav-list>
+
+        <mat-nav-list>
+          <mat-list-item
+            role="listitem"
+            class="center"
+            (click)="toggleTheme()"
+            matTooltip="Select theme"
+          >
+            <mat-icon aria-hidden="false" aria-label="switch theme icon">
+              <span *ngIf="isDark" class="material-icons toggle">
+                light_mode
+              </span>
+              <span *ngIf="!isDark" class="material-icons-round toggle">
+                dark_mode
+              </span>
+            </mat-icon>
+          </mat-list-item>
+        </mat-nav-list>
+      </mat-toolbar>
     </mat-sidenav>
     <mat-sidenav-content>
       <router-outlet></router-outlet>

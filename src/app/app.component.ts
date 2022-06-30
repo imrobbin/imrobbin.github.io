@@ -20,9 +20,9 @@ export class AppComponent implements OnInit, OnDestroy {
   isDark = false;
 
   paths: Path[] = [
-    { path: 'about', label: 'About' },
-    { path: 'my-skills', label: 'My Skills' },
-    { path: 'works', label: 'Works' },
+    // { path: 'about', label: 'About' },
+    // { path: 'my-skills', label: 'My Skills' },
+    { path: 'works', label: 'Projects' },
     { path: 'contact', label: 'Contact' },
   ];
 
@@ -42,8 +42,18 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   toggleTheme(): void {
-    this.isDark = !this.isDark;
-    this._colorSchemeService.toggleColorScheme(this.isDark);
+    document.querySelector('.toggle')?.classList.add('animate');
+
+    setTimeout(() => {
+      document.querySelector('.toggle')?.classList.toggle('active');
+      this.isDark = !this.isDark;
+      this._colorSchemeService.toggleColorScheme(this.isDark);
+    }, 300);
+
+    setTimeout(
+      () => document.querySelector('.toggle')?.classList.remove('animate'),
+      600
+    );
   }
 
   ngOnDestroy(): void {

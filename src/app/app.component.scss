@@ -14,10 +14,6 @@
   z-index: 2;
 }
 
-h1.main-app-name {
-  margin-left: 8px;
-}
-
 .main-sidenav-container {
   /*
   When the sidenav is not fixed, stretch the sidenav container to fill the available space.
@@ -34,40 +30,71 @@ h1.main-app-name {
   flex: 1 0 auto;
 }
 
-.main {
-  &-sidenav {
-    width: 10rem;
+.sideNavBar {
+  .mat-toolbar {
+    height: 100%;
+    padding: 16px 0;
+  }
 
-    &-menu_nav {
-      padding: 0;
-      border-top: 1px solid #282828;
+  .mat-nav-list {
+    padding: 0;
+    width: 100%;
+  }
 
-      mat-icon {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #8f8d8d;
-      }
+  .sideNavBarMenuNavList {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
 
-      a {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #8f8d8d;
-        // color: #909096;
-        // border-bottom: 1px solid #5f5c5c;
-        border-bottom: 1px solid #484747;
-        transition: color 0.3s, background-color 0.3s;
-      }
+  .mat-list-item,
+  .mat-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
 
-      a:hover {
-        color: #08fdd8;
-      }
+.mobileNavBarMenuList {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-      .active-list-item {
-        color: var(--primary-color) !important;
-      }
+  .flexRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .mat-nav-list {
+    padding: 0;
+  }
+}
+
+.mobileNavBarMenuList,
+.sideNavBarMenuNavList {
+  .mat-list-item:hover {
+    color: var(--primary-color);
+  }
+
+  .active-list-item {
+    color: var(--primary-color) !important;
+  }
+
+  .toggle.animate {
+    animation: animate 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @keyframes animate {
+    0% {
+      transform: scale(1) rotate(45deg);
+    }
+    50% {
+      transform: scale(0) rotate(90deg);
+    }
+    100% {
+      transform: scale(1) rotate(0deg);
     }
   }
 }
