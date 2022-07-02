@@ -1,20 +1,79 @@
-<div class="container">
+<main class="container">
   <!-- https://iuri.is/about -->
   <!-- https://jackthenomad.com/coding-is-not-an-art-its-engineering-e95c2eead1ea -->
   <!-- https://mattfarley.ca/ -->
+  <!-- https://tunis.ibthemespro.com/home-dark -->
 
-  <div class="text-zone">
-    <h1 class="text-root">
-      <span>Hi,</span><br />
-      <span>I'm Ravindra,</span><br />
-      <span>App Developer</span><br />
-    </h1>
-    <p>Front End Developer</p>
-    <br />
-    <div>
-      <button mat-stroked-button color="primary">Contact me</button>
+  <!---
+    below pattern is followed
+    1. common styles
+    2. row layout
+    3. row layout styles
+    4. column (lt-md to divide into column) layout
+    5. column layout styles
+   -->
+
+  <section
+    [ngStyle]="{ padding: '32px 16px' }"
+    fxLayout="row"
+    [ngStyle.gt-sm]="{ height: '100vh' }"
+    fxLayout.lt-md="column"
+    fxLayoutAlign.gt-sm="center center"
+  >
+    <div flFlex="40%" fxLayoutAlign="center center">
+      <!--- show circular image on tablet/mobile only  fxLayout.lt-md="column"-->
+      <div fxHide fxShow.lt-md>
+        <img
+          src="../../../assets/images/Ravindra-Patle.jpg"
+          alt="image"
+          [ngStyle]="{
+            width: '270px',
+            height: '270px',
+            'margin.px': '0 auto 25',
+            border: '4px solid #252525',
+            'border-radius': '50%'
+          }"
+        />
+      </div>
+      <!--- show large image on laptop/pc only  -->
+      <div fxHide fxShow.gt-sm>
+        <img
+          src="../../../assets/images/Ravindra-Patle.jpg"
+          alt="image"
+          [ngStyle]="{
+            'width.%': 100,
+            'height.%': 80,
+            'box-shadow': '0 0 7px rgb(0 0 0 / 90%)',
+            'border-radius': '30px'
+          }"
+        />
+      </div>
     </div>
-  </div>
 
-  <!-- My current toolset includes Angular, React, React Native, Redux, TypeScript, Ionic Framework and all the other various frameworks, libraries and technologies related to them. -->
-</div>
+    <div
+      flFlex="60%"
+      [ngStyle.gt-sm]="{ 'padding.rem': 3 }"
+      [ngStyle.lt-md]="{ 'margin-bottom.px': 64, 'text-align': 'center' }"
+    >
+      <h1
+        class="mat-display-2 uppercase"
+        [ngStyle]="{ 'margin-bottom.px': 16 }"
+        ngClass.xs="mat-display-1"
+      >
+        <span class="selected">I'm Ravindra Patle.</span><br />
+        App Developer
+      </h1>
+      <p class="mat-body-1">
+        I'm a web designer & front‑end developer focused on crafting clean &
+        user‑friendly experiences, I am passionate about building excellent
+        software that improves the lives of those around me.
+      </p>
+      <br />
+      <div>
+        <button mat-stroked-button color="primary">Contact me</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- My current toolset includes React, React Native, Angular, Redux, TypeScript, Ionic Framework, Nodejs, MongoDB and all the other various frameworks, libraries and technologies related to them. -->
+</main>

@@ -1,7 +1,18 @@
-.text-zone {
-  .text-root {
-    font-size: 4rem;
-    line-height: 5rem;
-    // color: #fff;
-  }
+// .hero-large {
+//   margin-bottom: 16px;
+// }
+
+.heroAvatar {
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 30px;
+  box-shadow: 0 0 7px rgb(0 0 0 / 90%);
+  height: 80%;
+  width: 100%;
 }
+
+// ,
+//             display: 'flex',
+//             'justify-content': 'center',
+//             'align-items': 'center'

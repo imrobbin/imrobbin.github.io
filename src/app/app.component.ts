@@ -6,6 +6,7 @@ import { ColorSchemeService } from './core/services/color-scheme.service';
 export interface Path {
   path: string;
   label: string;
+  icon: string;
 }
 
 @Component({
@@ -22,8 +23,9 @@ export class AppComponent implements OnInit, OnDestroy {
   paths: Path[] = [
     // { path: 'about', label: 'About' },
     // { path: 'my-skills', label: 'My Skills' },
-    { path: 'works', label: 'Projects' },
-    { path: 'contact', label: 'Contact' },
+    { path: '/', label: 'Home', icon: 'home' },
+    { path: 'works', label: 'Projects', icon: 'auto_awesome_mosaic' },
+    { path: 'contact', label: 'Contact', icon: 'mail' },
   ];
 
   constructor(
