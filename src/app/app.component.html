@@ -18,10 +18,15 @@
         <mat-list>
           <ng-container *ngFor="let path of paths">
             <mat-list-item [ngStyle]="{ 'margin-bottom.px': 16 }">
-              <mat-card [routerLink]="path.path" class="cardIconContainer">
-                <mat-icon mat-list-icon>folder</mat-icon>
+              <mat-card
+                [routerLink]="path.url"
+                class="card-icon-container mat-elevation-z8"
+                routerLinkActive="active-link"
+                [routerLinkActiveOptions]="{ exact: true }"
+              >
+                <mat-icon mat-list-icon>{{ path.icon }}</mat-icon>
               </mat-card>
-              <span class="mat-subheading-1 navListLabel">
+              <span class="mat-subheading-1 nav-list-label">
                 {{ path.label }}
               </span>
             </mat-list-item>
@@ -29,57 +34,28 @@
         </mat-list>
       </div>
     </mat-sidenav>
-    <mat-sidenav-content>
-      <div class="themeSwitcherContainer">
-        <mat-card (click)="toggleTheme()">
-          <mat-icon aria-hidden="false" aria-label="switch theme icon">
-            <span *ngIf="isDark" class="material-icons toggle">
-              light_mode
-            </span>
-            <span *ngIf="!isDark" class="material-icons-round toggle">
-              dark_mode
-            </span>
-          </mat-icon>
-        </mat-card>
-      </div>
+    <mat-sidenav-content [style.marginBottom.px]="mobileQuery.matches ? 56 : 0">
+      <app-theme-switch-component></app-theme-switch-component>
       <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>
   <mat-toolbar
-    class="main-toolbar mobileNavBarMenuList"
+    class="main-toolbar mobileNavBarContainer"
     *ngIf="mobileQuery.matches"
   >
-    <mat-nav-list>
-      <a mat-list-item routerLink="/">
-        <span>Home</span>
-      </a>
-    </mat-nav-list>
-
-    <mat-nav-list class="flexRow">
-      <a
-        mat-list-item
-        *ngFor="let path of paths"
-        [routerLink]="path.path"
-        routerLinkActive="active-list-item"
-      >
-        <span class="capitalize">{{ path.label }}</span>
-      </a>
-    </mat-nav-list>
-
-    <mat-nav-list>
-      <mat-list-item
-        role="listitem"
-        class="center"
-        (click)="toggleTheme()"
-        matTooltip="Select theme"
-      >
-        <mat-icon aria-hidden="false" aria-label="switch theme icon">
-          <span *ngIf="isDark" class="material-icons toggle"> light_mode </span>
-          <span *ngIf="!isDark" class="material-icons-round toggle">
-            dark_mode
-          </span>
-        </mat-icon>
-      </mat-list-item>
-    </mat-nav-list>
+    <div fxLayout="row" fxLayoutAlign="center center" style="flex: 1">
+      <div class="card-container">
+        <ng-container *ngFor="let path of paths">
+          <mat-card
+            [routerLink]="path.url"
+            class="card-icon-container"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <mat-icon mat-list-icon>{{ path.icon }}</mat-icon>
+          </mat-card>
+        </ng-container>
+      </div>
+    </div>
   </mat-toolbar>
 </div>

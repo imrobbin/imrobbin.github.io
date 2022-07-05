@@ -11,14 +11,14 @@
     3. row layout styles
     4. column (lt-md to divide into column) layout
     5. column layout styles
-   -->
+
+  -->
 
   <section
-    [ngStyle]="{ padding: '32px 16px' }"
     fxLayout="row"
-    [ngStyle.gt-sm]="{ height: '100vh' }"
     fxLayout.lt-md="column"
     fxLayoutAlign.gt-sm="center center"
+    [ngStyle.gt-sm]="{ height: 'calc(100vh - 64px)' }"
   >
     <div flFlex="40%" fxLayoutAlign="center center">
       <!--- show circular image on tablet/mobile only  fxLayout.lt-md="column"-->
@@ -26,12 +26,10 @@
         <img
           src="../../../assets/images/Ravindra-Patle.jpg"
           alt="image"
-          [ngStyle]="{
+          class="image-circular"
+          [ngStyle.sm]="{
             width: '270px',
-            height: '270px',
-            'margin.px': '0 auto 25',
-            border: '4px solid #252525',
-            'border-radius': '50%'
+            height: '270px'
           }"
         />
       </div>
@@ -40,12 +38,7 @@
         <img
           src="../../../assets/images/Ravindra-Patle.jpg"
           alt="image"
-          [ngStyle]="{
-            'width.%': 100,
-            'height.%': 80,
-            'box-shadow': '0 0 7px rgb(0 0 0 / 90%)',
-            'border-radius': '30px'
-          }"
+          class="mat-elevation-z8 image-large"
         />
       </div>
     </div>
@@ -53,16 +46,16 @@
     <div
       flFlex="60%"
       [ngStyle.gt-sm]="{ 'padding.rem': 3 }"
-      [ngStyle.lt-md]="{ 'margin-bottom.px': 64, 'text-align': 'center' }"
+      [ngStyle.lt-md]="{ 'text-align': 'center' }"
     >
-      <h1
+      <div
         class="mat-display-2 uppercase"
-        [ngStyle]="{ 'margin-bottom.px': 16 }"
+        [ngStyle]="{ padding: '16px 0', margin: '0' }"
         ngClass.xs="mat-display-1"
       >
         <span class="selected">I'm Ravindra Patle.</span><br />
         App Developer
-      </h1>
+      </div>
       <p class="mat-body-1">
         I'm a web designer & front‑end developer focused on crafting clean &
         user‑friendly experiences, I am passionate about building excellent

@@ -1,10 +1,8 @@
 import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 
-import { ColorSchemeService } from './core/services/color-scheme.service';
-
 export interface Path {
-  path: string;
+  url: string;
   label: string;
   icon: string;
 }
@@ -18,45 +16,25 @@ export class AppComponent implements OnInit, OnDestroy {
   private _mobileQueryListener: () => void;
   title = 'Ravindra Patle';
   mobileQuery: MediaQueryList;
-  isDark = false;
 
   paths: Path[] = [
-    // { path: 'about', label: 'About' },
-    // { path: 'my-skills', label: 'My Skills' },
-    { path: '/', label: 'Home', icon: 'home' },
-    { path: 'works', label: 'Projects', icon: 'auto_awesome_mosaic' },
-    { path: 'contact', label: 'Contact', icon: 'mail' },
+    // { url: 'my-skills', label: 'My Skills' },
+    { url: '/', label: 'Home', icon: 'home' },
+    { url: 'about', label: 'About', icon: 'person' },
+    { url: 'works', label: 'Projects', icon: 'auto_awesome_mosaic' },
+    { url: 'contact', label: 'Contact', icon: 'mail' },
   ];
 
   constructor(
     private changeDetectorRef: ChangeDetectorRef,
-    private media: MediaMatcher,
-    private _colorSchemeService: ColorSchemeService
+    private media: MediaMatcher
   ) {
     this.mobileQuery = this.media.matchMedia('(max-width: 768px)');
     this._mobileQueryListener = () => this.changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
-  async ngOnInit(): Promise<void> {
-    await this._colorSchemeService.checkDefaultColorScheme();
-    this.isDark = this._colorSchemeService.isColorSchemeChecked;
-  }
-
-  toggleTheme(): void {
-    document.querySelector('.toggle')?.classList.add('animate');
-
-    setTimeout(() => {
-      document.querySelector('.toggle')?.classList.toggle('active');
-      this.isDark = !this.isDark;
-      this._colorSchemeService.toggleColorScheme(this.isDark);
-    }, 300);
-
-    setTimeout(
-      () => document.querySelector('.toggle')?.classList.remove('animate'),
-      600
-    );
-  }
+  ngOnInit(): void {}
 
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);

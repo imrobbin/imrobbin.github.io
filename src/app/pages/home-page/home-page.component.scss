@@ -1,7 +1,3 @@
-// .hero-large {
-//   margin-bottom: 16px;
-// }
-
 .heroAvatar {
   background-position: top;
   background-repeat: no-repeat;
@@ -12,7 +8,16 @@
   width: 100%;
 }
 
-// ,
-//             display: 'flex',
-//             'justify-content': 'center',
-//             'align-items': 'center'
+.image-circular {
+  width: 230px;
+  height: 230px;
+  border: 4px solid #252525;
+  border-radius: 50%;
+}
+
+.image-large {
+  width: 100%;
+  height: 80%;
+  box-shadow: 0 0 7px rgb(0 0 0 / 90%);
+  border-radius: 30px;
+}

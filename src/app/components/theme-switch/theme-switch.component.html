@@ -1,0 +1,10 @@
+<div class="theme-switch-container">
+  <mat-card (click)="toggleTheme()" class="mat-elevation-z8">
+    <mat-icon aria-hidden="false" aria-label="switch theme icon">
+      <span *ngIf="isDark" class="material-icons toggle"> light_mode </span>
+      <span *ngIf="!isDark" class="material-icons-round toggle">
+        dark_mode
+      </span>
+    </mat-icon>
+  </mat-card>
+</div>

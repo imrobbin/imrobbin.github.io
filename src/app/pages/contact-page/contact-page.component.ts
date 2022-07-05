@@ -11,4 +11,8 @@ export class ContactPageComponent implements OnInit, OnDestroy {
   ngOnInit(): void {}
 
   ngOnDestroy(): void {}
+
+  clickContactMe(e: any): void {
+    e.preventDefault();
+  }
 }

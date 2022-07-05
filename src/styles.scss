@@ -15,7 +15,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap");
 
 $fontConfig: (
-  display-4: mat.define-typography-level(110px, 112px, 500, "Poppins", 0.0727em),
+  display-4: mat.define-typography-level(110px, 112px, 700, "Poppins", 0.0727em),
   display-3: mat.define-typography-level(56px, 68px, 500, "Poppins", 0.0179em),
   display-2: mat.define-typography-level(45px, 52px, 700, "Poppins", 0em),
   display-1: mat.define-typography-level(34px, 40px, 500, "Poppins", 0.0074em),
@@ -296,12 +296,16 @@ body {
 }
 
 .container {
-  // padding: 2rem 4rem;
+  padding: 32px 16px;
   overflow: hidden;
 }
 
 .full-width {
   width: 100%;
+}
+
+.no-margin {
+  margin: 0;
 }
 
 .uppercase {
@@ -320,4 +324,21 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.title-section {
+  position: relative;
+  padding: 80px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.title-bg {
+  position: absolute;
+  margin: 0;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.1;
 }

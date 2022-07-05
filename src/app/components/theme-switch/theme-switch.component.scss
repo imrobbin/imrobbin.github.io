@@ -1,0 +1,39 @@
+.theme-switch-container {
+  position: fixed;
+  right: -2px;
+  top: 30%;
+  transform: translateY(-30%);
+  z-index: 100;
+
+  .mat-card {
+    cursor: pointer;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease-out;
+
+    &:hover {
+      border: 1px solid var(--primary-color);
+    }
+
+    .mat-icon {
+      display: flex;
+    }
+
+    .toggle.animate {
+      animation: animate 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @keyframes animate {
+      0% {
+        transform: scale(1) rotate(45deg);
+      }
+      50% {
+        transform: scale(0) rotate(90deg);
+      }
+      100% {
+        transform: scale(1) rotate(0deg);
+      }
+    }
+  }
+}

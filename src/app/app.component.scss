@@ -13,6 +13,7 @@
   /* Make sure the toolbar will stay on top of the content as it scrolls past. */
   z-index: 2;
   bottom: 0;
+  // background-color: transparent;
 }
 
 .main-sidenav-container {
@@ -34,118 +35,56 @@
 .sideNavBar {
   background-color: transparent;
   border: 0;
-
-  // .icon-circle {
-  .cardIconContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    border-radius: 50%;
-    cursor: pointer;
-    height: 50px;
-    width: 50px;
-    transition: 0.3s;
-  }
-
-  // .icon-circle:hover {
-  .cardIconContainer:hover {
-    background-color: var(--primary-color);
-    color: #ffffff;
-  }
-
-  // ::ng-deep .mat-list-text {
-  .navListLabel {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-transform: uppercase;
-    height: 50px;
-    background-color: var(--primary-color);
-    border-radius: 0 30px 30px 0;
-    color: #ffffff;
-    margin: 0;
-    opacity: 0;
-    padding: 0 16px 0 32px !important;
-    margin-left: -32px;
-    transition: all 0.5s;
-    z-index: -1;
-  }
-
-  // .icon-circle:hover + ::ng-deep .mat-list-text {
-  .cardIconContainer:hover + .navListLabel {
-    opacity: 1;
-    margin-left: -24px;
-  }
-
-  .flex-center {
-    display: flex;
-    flex-direction: column;
-  }
 }
 
-.mobileNavBarMenuList {
+.card-icon-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  transition: 0.3s;
+}
 
-  .flexRow {
+.card-icon-container:hover {
+  background-color: var(--primary-color);
+  color: #ffffff;
+}
+
+.nav-list-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  height: 50px;
+  background-color: var(--primary-color);
+  border-radius: 0 30px 30px 0;
+  color: #ffffff;
+  margin: 0;
+  opacity: 0;
+  padding: 0 16px 0 32px !important;
+  margin-left: -32px;
+  transition: all 0.5s;
+  z-index: -1;
+}
+
+.card-icon-container:hover + .nav-list-label {
+  opacity: 1;
+  margin-left: -24px;
+}
+
+.mobileNavBarContainer {
+  .card-container {
     display: flex;
-    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
-  }
-
-  .mat-nav-list {
-    padding: 0;
+    flex: 1;
   }
 }
 
-.mobileNavBarMenuList,
-.sideNavBarMenuNavList {
-  .mat-list-item:hover {
-    color: var(--primary-color);
-  }
-
-  .active-list-item {
-    color: var(--primary-color) !important;
-  }
-
-  .toggle.animate {
-    animation: animate 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  @keyframes animate {
-    0% {
-      transform: scale(1) rotate(45deg);
-    }
-    50% {
-      transform: scale(0) rotate(90deg);
-    }
-    100% {
-      transform: scale(1) rotate(0deg);
-    }
-  }
-}
-
-.themeSwitcherContainer {
-  position: fixed;
-  right: -2px;
-  top: 30%;
-  transform: translateY(-30%);
-
-  .mat-card {
-    cursor: pointer;
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
-    border: 1px solid transparent;
-    transition: all 0.3s ease-out;
-
-    &:hover {
-      border: 1px solid var(--primary-color);
-    }
-
-    .mat-icon {
-      display: flex;
-    }
-  }
+.active-link {
+  background-color: var(--primary-color) !important;
 }

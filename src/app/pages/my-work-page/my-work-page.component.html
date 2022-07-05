@@ -1,1 +1,48 @@
-<p>my-work-page works!</p>
+<main class="container">
+  <!--  start header section -->
+  <section class="title-section">
+    <span class="title-bg mat-display-4 uppercase">Works</span>
+    <span class="mat-display-2 uppercase no-margin">
+      My <span class="selected">Portfolio</span>
+    </span>
+  </section>
+  <!--   end header section -->
+
+  <!-- start tabbar section -->
+  <section class="tabbar">
+    <mat-tab-group mat-align-tabs="center" dynamicHeight="true">
+      <ng-container *ngFor="let tab of [1, 2, 3, 4]; let i = index">
+        <!-- tabs with label -->
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <label class="mat-subheading-1 no-margin">{{ i + 1 }} Label</label>
+          </ng-template>
+          <!-- tab content -->
+          <div fxLayout="row wrap">
+            <ng-container *ngFor="let item of [1, 2, 3, 4, 5, 6, 7]">
+              <div
+                fxFlex="30%"
+                fxFlex.sm="47%"
+                fxFlex.xs="100%"
+                class="card-container"
+              >
+                <mat-card>
+                  <mat-card-content>
+                    <img
+                      class="card-image"
+                      mat-card-image
+                      src="https://tunis.ibthemespro.com/static/media/project-3.289756148b7f4ab53580.jpg"
+                      alt="Photo of a Shiba Inu"
+                    />
+                    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+            </ng-container>
+          </div>
+        </mat-tab>
+      </ng-container>
+    </mat-tab-group>
+  </section>
+  <!-- end tabbar section -->
+</main>
