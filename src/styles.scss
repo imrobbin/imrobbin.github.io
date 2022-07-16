@@ -16,7 +16,7 @@
 
 $fontConfig: (
   display-4: mat.define-typography-level(110px, 112px, 700, "Poppins", 0.0727em),
-  display-3: mat.define-typography-level(56px, 68px, 500, "Poppins", 0.0179em),
+  display-3: mat.define-typography-level(56px, 68px, 700, "Poppins", 0.0179em),
   display-2: mat.define-typography-level(45px, 52px, 700, "Poppins", 0em),
   display-1: mat.define-typography-level(34px, 40px, 500, "Poppins", 0.0074em),
   headline: mat.define-typography-level(26px, 32px, 500, "Poppins", 0.0385em),
@@ -295,8 +295,13 @@ body {
   text-transform: capitalize;
 }
 
-.container {
-  padding: 32px 16px;
+.mobileContainer {
+  padding: 64px 16px;
+  overflow: hidden;
+}
+
+.webContainer {
+  padding: 0 112px;
   overflow: hidden;
 }
 

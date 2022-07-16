@@ -2,10 +2,12 @@
   <mat-sidenav-container
     class="main-sidenav-container"
     [style.marginBottom.px]="mobileQuery.matches ? 56 : 0"
+    hasBackdrop="false"
   >
+    <!-- [mode]="mobileQuery.matches ? 'over' : 'side'" -->
     <mat-sidenav
       class="sideNavBar"
-      [mode]="mobileQuery.matches ? 'over' : 'side'"
+      mode="over"
       [fixedInViewport]="mobileQuery.matches"
       fixedTopGap="56"
       [opened]="!mobileQuery.matches"
@@ -36,7 +38,9 @@
     </mat-sidenav>
     <mat-sidenav-content [style.marginBottom.px]="mobileQuery.matches ? 56 : 0">
       <app-theme-switch-component></app-theme-switch-component>
-      <router-outlet></router-outlet>
+      <div [ngClass]="mobileQuery.matches ? 'mobileContainer' : 'webContainer'">
+        <router-outlet></router-outlet>
+      </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
   <mat-toolbar

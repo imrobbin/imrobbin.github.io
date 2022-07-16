@@ -1,72 +1,76 @@
-<main class="container">
-  <!-- https://iuri.is/about -->
-  <!-- https://jackthenomad.com/coding-is-not-an-art-its-engineering-e95c2eead1ea -->
-  <!-- https://mattfarley.ca/ -->
-  <!-- https://tunis.ibthemespro.com/home-dark -->
+<!-- https://iuri.is/about -->
+<!-- https://jackthenomad.com/coding-is-not-an-art-its-engineering-e95c2eead1ea -->
+<!-- https://mattfarley.ca/ -->
+<!-- https://tunis.ibthemespro.com/home-dark -->
 
-  <!---
-    below pattern is followed
-    1. common styles
-    2. row layout
-    3. row layout styles
-    4. column (lt-md to divide into column) layout
-    5. column layout styles
+<!---
+  below pattern is followed
+  1. common styles
+  2. row layout
+  3. row layout styles
+  4. column (lt-md to divide into column) layout
+  5. column layout styles
 
-  -->
+-->
 
-  <section
-    fxLayout="row"
-    fxLayout.lt-md="column"
-    fxLayoutAlign.gt-sm="center center"
-    [ngStyle.gt-sm]="{ height: 'calc(100vh - 64px)' }"
-  >
-    <div flFlex="40%" fxLayoutAlign="center center">
-      <!--- show circular image on tablet/mobile only  fxLayout.lt-md="column"-->
-      <div fxHide fxShow.lt-md>
-        <img
-          src="../../../assets/images/Ravindra-Patle.jpg"
-          alt="image"
-          class="image-circular"
-          [ngStyle.sm]="{
-            width: '270px',
-            height: '270px'
-          }"
-        />
-      </div>
-      <!--- show large image on laptop/pc only  -->
-      <div fxHide fxShow.gt-sm>
-        <img
-          src="../../../assets/images/Ravindra-Patle.jpg"
-          alt="image"
-          class="mat-elevation-z8 image-large"
-        />
-      </div>
+<main
+  fxLayout="row wrap"
+  fxLayoutGap="0px grid"
+  fxLayout.lt-md="column"
+  fxLayoutAlign.gt-sm="center center"
+  [ngStyle.gt-sm]="{ height: '100vh' }"
+>
+  <div fxFlex="40%" fxLayoutAlign="center center">
+    <div
+      fxHide
+      fxShow.lt-md
+      fxLayoutAlign="center center"
+      style="margin-bottom: 16px"
+    >
+      <!-- show on mobile -->
+      <img
+        src="../../../assets/images/Ravindra-Patle.jpg"
+        alt="image"
+        class="image-circular"
+        [ngStyle.sm]="{
+          width: '270px',
+          height: '270px'
+        }"
+      />
     </div>
 
-    <div
-      flFlex="60%"
-      [ngStyle.gt-sm]="{ 'padding.rem': 3 }"
+    <div fxHide fxShow.gt-sm fxLayoutAlign="center center">
+      <!-- show on web -->
+      <img
+        src="../../../assets/images/Ravindra-Patle.jpg"
+        alt="image"
+        class="mat-elevation-z8 image-large"
+      />
+    </div>
+  </div>
+
+  <div fxFlex="60%" fxLayoutAlign="center center">
+    <section
+      [ngStyle.gt-sm]="{ padding: '0 4rem 0 6rem' }"
       [ngStyle.lt-md]="{ 'text-align': 'center' }"
     >
       <div
         class="mat-display-2 uppercase"
-        [ngStyle]="{ padding: '16px 0', margin: '0' }"
+        [ngStyle]="{ margin: '16px 0' }"
         ngClass.xs="mat-display-1"
       >
         <span class="selected">I'm Ravindra Patle.</span><br />
         App Developer
       </div>
-      <p class="mat-body-1">
+      <p class="mat-body-1" [ngStyle.sm]="{ padding: '0 4rem' }">
         I'm a web designer & front‑end developer focused on crafting clean &
         user‑friendly experiences, I am passionate about building excellent
         software that improves the lives of those around me.
       </p>
-      <br />
+
       <div>
         <button mat-stroked-button color="primary">Contact me</button>
       </div>
-    </div>
-  </section>
-
-  <!-- My current toolset includes React, React Native, Angular, Redux, TypeScript, Ionic Framework, Nodejs, MongoDB and all the other various frameworks, libraries and technologies related to them. -->
+    </section>
+  </div>
 </main>

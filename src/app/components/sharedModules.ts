@@ -6,19 +6,26 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 
 import { HeaderComponent } from './header/header.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 import { ThemeSwitchComponent } from './theme-switch/theme-switch.component';
 
-const MaterialModules = [
+const materialModules = [
   MatSidenavModule,
   MatListModule,
   MatCardModule,
   MatIconModule,
 ];
 
+const sharedComponents = [
+  HeaderComponent,
+  ThemeSwitchComponent,
+  SpinnerComponent,
+];
+
 @NgModule({
-  imports: [CommonModule, ...MaterialModules],
-  declarations: [HeaderComponent, ThemeSwitchComponent],
-  exports: [HeaderComponent, ThemeSwitchComponent],
+  imports: [CommonModule, ...materialModules],
+  declarations: [...sharedComponents],
+  exports: [...sharedComponents],
   providers: [],
 })
 export class sharedModule {}

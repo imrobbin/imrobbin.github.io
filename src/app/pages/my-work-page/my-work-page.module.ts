@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [MyWorkPageComponent],
@@ -14,6 +15,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatTabsModule,
     MatCardModule,
     FlexLayoutModule,
+    MatProgressSpinnerModule,
   ],
 })
 export class MyWorkPageModule {}

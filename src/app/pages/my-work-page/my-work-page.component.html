@@ -1,48 +1,62 @@
-<main class="container">
+<main>
   <!--  start header section -->
   <section class="title-section">
-    <span class="title-bg mat-display-4 uppercase">Works</span>
-    <span class="mat-display-2 uppercase no-margin">
+    <span class="mat-display-4 uppercase title-bg">Works</span>
+    <span class="mat-display-3 uppercase no-margin">
       My <span class="selected">Portfolio</span>
     </span>
   </section>
   <!--   end header section -->
 
   <!-- start tabbar section -->
-  <section class="tabbar">
-    <mat-tab-group mat-align-tabs="center" dynamicHeight="true">
-      <ng-container *ngFor="let tab of [1, 2, 3, 4]; let i = index">
-        <!-- tabs with label -->
-        <mat-tab>
-          <ng-template mat-tab-label>
-            <label class="mat-subheading-1 no-margin">{{ i + 1 }} Label</label>
-          </ng-template>
-          <!-- tab content -->
-          <div fxLayout="row wrap">
-            <ng-container *ngFor="let item of [1, 2, 3, 4, 5, 6, 7]">
-              <div
-                fxFlex="30%"
-                fxFlex.sm="47%"
-                fxFlex.xs="100%"
-                class="card-container"
-              >
-                <mat-card>
-                  <mat-card-content>
-                    <img
-                      class="card-image"
-                      mat-card-image
-                      src="https://tunis.ibthemespro.com/static/media/project-3.289756148b7f4ab53580.jpg"
-                      alt="Photo of a Shiba Inu"
-                    />
-                    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-                  </mat-card-content>
-                </mat-card>
-              </div>
-            </ng-container>
-          </div>
-        </mat-tab>
-      </ng-container>
-    </mat-tab-group>
+  <section
+    fxLayout="row"
+    fxLayoutAlign="center center"
+    *ngIf="showSpinner; else showTabs"
+  >
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
   </section>
+
+  <ng-template #showTabs>
+    <section class="tabbar">
+      <mat-tab-group mat-align-tabs="center" dynamicHeight="true">
+        <ng-container *ngFor="let repo of repos">
+          <!-- tabs with label -->
+          <mat-tab *ngIf="repo.projects.length > 0">
+            <ng-template mat-tab-label>
+              <label class="mat-subheading-1 no-margin">
+                {{ repo.label }}
+              </label>
+            </ng-template>
+            <!-- tab content -->
+            <div fxLayout="row wrap" style="margin-bottom: 40px">
+              <div
+                *ngFor="let project of repo.projects"
+                fxFlex="33%"
+                fxFlex.sm="50%"
+                fxFlex.xs="100%"
+              >
+                <div class="card-container">
+                  <mat-card>
+                    <mat-card-content>
+                      <img
+                        class="card-image"
+                        mat-card-image
+                        src="https://tunis.ibthemespro.com/static/media/project-3.289756148b7f4ab53580.jpg"
+                        alt="Photo of a Shiba Inu"
+                      />
+                      <mat-card-subtitle>
+                        {{ project.description }}
+                      </mat-card-subtitle>
+                    </mat-card-content>
+                  </mat-card>
+                </div>
+              </div>
+            </div>
+          </mat-tab>
+        </ng-container>
+      </mat-tab-group>
+    </section>
+  </ng-template>
   <!-- end tabbar section -->
 </main>
