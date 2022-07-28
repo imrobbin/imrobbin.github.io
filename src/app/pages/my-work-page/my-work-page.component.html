@@ -22,36 +22,36 @@
       <mat-tab-group mat-align-tabs="center" dynamicHeight="true">
         <ng-container *ngFor="let repo of repos">
           <!-- tabs with label -->
-          <mat-tab *ngIf="repo.projects.length > 0">
-            <ng-template mat-tab-label>
-              <label class="mat-subheading-1 no-margin">
-                {{ repo.label }}
-              </label>
-            </ng-template>
+          <mat-tab *ngIf="repo.projects.length > 0" [label]="repo.label">
             <!-- tab content -->
             <div fxLayout="row wrap" style="margin-bottom: 40px">
-              <div
-                *ngFor="let project of repo.projects"
-                fxFlex="33%"
-                fxFlex.sm="50%"
-                fxFlex.xs="100%"
-              >
-                <div class="card-container">
-                  <mat-card>
-                    <mat-card-content>
-                      <img
-                        class="card-image"
-                        mat-card-image
-                        src="https://tunis.ibthemespro.com/static/media/project-3.289756148b7f4ab53580.jpg"
-                        alt="Photo of a Shiba Inu"
-                      />
-                      <mat-card-subtitle>
-                        {{ project.description }}
-                      </mat-card-subtitle>
-                    </mat-card-content>
-                  </mat-card>
+              <ng-container *ngFor="let project of repo.projects">
+                <div fxFlex="0 1 33%" fxFlex.sm="0 1 50%" fxFlex.xs="100%">
+                  <div class="card-container">
+                    <mat-card>
+                      <div class="image-container">
+                        <img
+                          class="card-image"
+                          mat-card-image
+                          [src]="project.image_url"
+                          alt="Image for Repo"
+                        />
+                      </div>
+                      <mat-card-content>
+                        <mat-card-title class="title">
+                          {{ project.name }}
+                        </mat-card-title>
+                        <mat-card-subtitle class="description">
+                          {{ project.description }}
+                        </mat-card-subtitle>
+                      </mat-card-content>
+                      <!-- <mat-card-actions align="end" fxHide fxShow.xs>
+                      <button mat-stroked-button color="primary">View</button>
+                    </mat-card-actions> -->
+                    </mat-card>
+                  </div>
                 </div>
-              </div>
+              </ng-container>
             </div>
           </mat-tab>
         </ng-container>

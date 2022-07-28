@@ -8,18 +8,22 @@ import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [ContactPageComponent],
   imports: [
+    ReactiveFormsModule,
     CommonModule,
+    RouterModule.forChild([{ path: '', component: ContactPageComponent }]),
     MatInputModule,
     MatButtonModule,
     MatCardModule,
     FlexLayoutModule,
     MatListModule,
     MatIconModule,
-    RouterModule.forChild([{ path: '', component: ContactPageComponent }]),
+    MatProgressBarModule,
   ],
 })
 export class ContactPageModule {}

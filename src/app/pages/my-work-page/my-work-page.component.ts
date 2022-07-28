@@ -33,10 +33,6 @@ export class MyWorkPageComponent implements OnInit, OnDestroy {
     // });
   }
 
-  getKeys(obj: any) {
-    return Object.keys(obj);
-  }
-
   private getAllRepos() {
     this.showSpinner = true;
     this.reposSubscription = this.httpService
@@ -53,18 +49,30 @@ export class MyWorkPageComponent implements OnInit, OnDestroy {
       )
       .subscribe({
         next: async (response) => {
-          const react = response.filter((res: any) =>
-            res.topics.includes('react')
-          );
-          const reactNative = response.filter((res: any) =>
-            res.topics.includes('react-native')
-          );
-          const angular = response.filter((res: any) =>
-            res.topics.includes('angular')
-          );
-          const ionic = response.filter((res: any) =>
-            res.topics.includes('ionic-framework')
-          );
+          const react = response.filter((res: any, i: number) => {
+            if (res.topics.includes('react')) {
+              res.image_url = 'https://unsplash.it/800/600?image=5' + i;
+              return res;
+            }
+          });
+          const reactNative = response.filter((res: any, i: number) => {
+            if (res.topics.includes('react-native')) {
+              res.image_url = 'https://unsplash.it/800/600?image=6' + i;
+              return res;
+            }
+          });
+          const angular = response.filter((res: any, i: number) => {
+            if (res.topics.includes('angular')) {
+              res.image_url = 'https://unsplash.it/800/600?image=4' + i;
+              return res;
+            }
+          });
+          const ionic = response.filter((res: any, i: number) => {
+            if (res.topics.includes('ionic-framework')) {
+              res.image_url = 'https://unsplash.it/800/600?image=9' + i;
+              return res;
+            }
+          });
 
           this.repos.push(
             { label: 'React', projects: react },

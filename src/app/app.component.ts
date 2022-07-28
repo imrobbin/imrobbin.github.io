@@ -18,11 +18,11 @@ export class AppComponent implements OnInit, OnDestroy {
   mobileQuery: MediaQueryList;
 
   paths: Path[] = [
-    // { url: 'my-skills', label: 'My Skills' },
     { url: '/', label: 'Home', icon: 'home' },
     { url: 'about', label: 'About', icon: 'person' },
     { url: 'works', label: 'Projects', icon: 'auto_awesome_mosaic' },
     { url: 'contact', label: 'Contact', icon: 'mail' },
+    { url: 'messages', label: 'Messages', icon: 'mail' },
   ];
 
   constructor(

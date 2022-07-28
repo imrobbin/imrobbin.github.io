@@ -291,10 +291,6 @@ body {
   color: #fff !important;
 }
 
-.capitalize {
-  text-transform: capitalize;
-}
-
 .mobileContainer {
   padding: 64px 16px;
   overflow: hidden;
@@ -315,6 +311,10 @@ body {
 
 .uppercase {
   text-transform: uppercase !important;
+}
+
+.capitalize {
+  text-transform: capitalize !important;
 }
 
 .selected {

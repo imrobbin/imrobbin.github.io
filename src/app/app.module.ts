@@ -9,16 +9,23 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { environment } from 'src/environments/environment';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { sharedModule } from './components/sharedModules';
 import { HttpClientModule } from '@angular/common/http';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
     MatSidenavModule,
@@ -28,6 +35,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     sharedModule,
     HttpClientModule,
+    MatSnackBarModule,
   ],
   exports: [sharedModule],
   providers: [],

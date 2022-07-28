@@ -5,6 +5,15 @@
 export const environment = {
   production: false,
   apiUrl: 'https://api.github.com/users/imrobbin/repos',
+  firebaseConfig: {
+    apiKey: 'AIzaSyC4IyyNmz3mXG7p0pAdeIJuwgUmjUsCBHY',
+    authDomain: 'dev-imrobbin.firebaseapp.com',
+    projectId: 'dev-imrobbin',
+    storageBucket: 'dev-imrobbin.appspot.com',
+    messagingSenderId: '949491206765',
+    appId: '1:949491206765:web:eed313949accab9cef8d64',
+    measurementId: 'G-K1MQXE52YP',
+  },
 };
 
 /*
