@@ -28,4 +28,4 @@ const sharedComponents = [
   exports: [...sharedComponents],
   providers: [],
 })
-export class sharedModule {}
+export class SharedModule {}

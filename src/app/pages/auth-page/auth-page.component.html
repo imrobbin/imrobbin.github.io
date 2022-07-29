@@ -1,0 +1,61 @@
+<main>
+  <!-- start header section -->
+  <section class="title-section">
+    <span class="mat-display-4 uppercase title-bg">Auth</span>
+    <span class="mat-display-3 uppercase no-margin">
+      Log <span class="selected">In</span>
+    </span>
+  </section>
+  <!-- end header section -->
+
+  <!-- Start Login form section -->
+  <section>
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <div class="full-width">
+        <form
+          [formGroup]="formLogin"
+          novalidate
+          style="margin: 0 auto; width: 50%"
+          [ngStyle.lt-sm]="{ width: '100%' }"
+        >
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" type="email" />
+            <mat-error *ngIf="errorHandling('email', 'required')">
+              Please provide an email address.
+            </mat-error>
+            <mat-error *ngIf="errorHandling('email', 'email')">
+              Please provide a valid email address.
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="password" type="text" />
+            <mat-error *ngIf="errorHandling('password', 'required')">
+              Please provide a password.
+            </mat-error>
+          </mat-form-field>
+
+          <div class="progressBarContainer">
+            <div class="progressBar" *ngIf="isSubmitting">
+              <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+            </div>
+          </div>
+
+          <button
+            class="lg-btn full-width"
+            mat-stroked-button
+            color="primary"
+            type="button"
+            [disabled]="formLogin.invalid || isSubmitting"
+            (click)="submitLogin()"
+          >
+            Login
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+  <!-- End Login form section -->
+</main>

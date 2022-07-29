@@ -15,7 +15,7 @@ import { environment } from 'src/environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { sharedModule } from './components/sharedModules';
+import { SharedModule } from './components/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
@@ -33,11 +33,11 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatIconModule,
     MatToolbarModule,
     MatCardModule,
-    sharedModule,
-    HttpClientModule,
     MatSnackBarModule,
+    SharedModule,
+    HttpClientModule,
   ],
-  exports: [sharedModule],
+  exports: [SharedModule],
   providers: [],
   bootstrap: [AppComponent],
 })

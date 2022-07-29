@@ -69,7 +69,15 @@
       </p>
 
       <div>
-        <button mat-stroked-button color="primary">Contact me</button>
+        <button
+          class="lg-btn"
+          mat-stroked-button
+          color="primary"
+          [routerLink]="['/contact']"
+          routerLinkActive="active-link"
+        >
+          Contact me
+        </button>
       </div>
     </section>
   </div>

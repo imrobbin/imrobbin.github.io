@@ -64,7 +64,7 @@
                   Please provide an email address.
                 </mat-error>
                 <mat-error *ngIf="errorHandling('email', 'email')">
-                  Please provide a valid email address.
+                  Please provide a valid email.
                 </mat-error>
               </mat-form-field>
             </div>
@@ -74,7 +74,7 @@
             <mat-label>Subject</mat-label>
             <input matInput formControlName="subject" type="text" />
             <mat-error *ngIf="errorHandling('subject', 'required')">
-              Please provide a Subject.
+              Please provide a subject.
             </mat-error>
           </mat-form-field>
 
@@ -84,8 +84,8 @@
             <mat-error *ngIf="errorHandling('message', 'required')">
               Please provide a message.
             </mat-error>
-            <mat-error *ngIf="errorHandling('message', 'minLength')">
-              Messages must be at least 15 characters long..
+            <mat-error *ngIf="errorHandling('message', 'minlength')">
+              Messages must be at least 15 characters long.
             </mat-error>
           </mat-form-field>
 
@@ -96,6 +96,7 @@
           </div>
 
           <button
+            class="lg-btn full-width"
             mat-stroked-button
             color="primary"
             type="button"

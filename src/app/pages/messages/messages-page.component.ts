@@ -2,9 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, SortDirection } from '@angular/material/sort';
+import { Router } from '@angular/router';
 import { merge, Observable, of as observableOf } from 'rxjs';
 import { catchError, map, startWith, switchMap } from 'rxjs/operators';
 import { MessagesService } from 'src/app/core/services/messages.service';
+import { AuthService } from '../auth-page/_services/auth.service';
 
 export interface IMessage {
   name: string;
@@ -26,6 +28,7 @@ export class MessagesPageComponent {
   messageSource: IMessage[] = [];
 
   resultsLength = 0;
+  messagesLength = 0;
   isLoadingResults = true;
   isRateLimitReached = false;
 
@@ -34,7 +37,9 @@ export class MessagesPageComponent {
 
   constructor(
     private _httpClient: HttpClient,
-    private messagesService: MessagesService
+    private messagesService: MessagesService,
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   ngAfterViewInit() {
@@ -80,12 +85,19 @@ export class MessagesPageComponent {
         this.paginator.pageIndex
       )
       .pipe(
-        map((data) => {
-          console.log('data ', data);
-          return data;
+        map((messages) => {
+          console.log('messages ', messages);
+          this.messagesLength = messages.length;
+          return messages;
         })
       )
-      .subscribe((data) => (this.messageSource = data));
+      .subscribe((messages) => (this.messageSource = messages));
+  }
+
+  async signOut() {
+    console.log('clicked');
+    await this.authService.signOut();
+    await this.router.navigate(['/']);
   }
 }
 

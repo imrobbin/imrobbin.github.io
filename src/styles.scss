@@ -347,3 +347,30 @@ body {
   transform: translateY(-50%);
   opacity: 0.1;
 }
+
+// progress bar used in forms
+
+.progressBarContainer {
+  position: relative;
+  height: 32px;
+  margin-bottom: 16px;
+
+  .progressBar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.mat-form-field {
+  margin-bottom: 8px;
+}
+
+.lg-btn {
+  padding: 8px 16px !important;
+}

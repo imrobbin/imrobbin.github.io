@@ -1,4 +1,18 @@
 <div class="example-container mat-elevation-z8">
+  <mat-toolbar>
+    <span>Contact Me</span>
+    <span class="toolbar-spacer"></span>
+    <button
+      mat-stroked-button
+      class="example-icon"
+      aria-label="logout icon"
+      (click)="signOut()"
+      color="warn"
+    >
+      Logout
+    </button>
+  </mat-toolbar>
+  <mat-divider></mat-divider>
   <div
     class="example-loading-shade"
     *ngIf="isLoadingResults || isRateLimitReached"
@@ -9,11 +23,21 @@
     </div>
   </div>
 
-  <mat-paginator
-    [length]="resultsLength"
-    [pageSize]="30"
-    aria-label="Select page of GitHub search results"
-  ></mat-paginator>
+  <div fxLayout="row">
+    <div fxFlex="50%">
+      <mat-toolbar>
+        <span>Contact Me</span>
+      </mat-toolbar>
+    </div>
+    <div fxFlex="50%">
+      <mat-paginator
+        [length]="resultsLength"
+        [pageSize]="30"
+        aria-label="Select page of GitHub search results"
+      ></mat-paginator>
+    </div>
+  </div>
+
   <div class="example-table-container">
     <table
       mat-table
@@ -62,8 +86,8 @@
   </div>
 
   <mat-paginator
-    [length]="resultsLength"
-    [pageSize]="30"
+    [length]="messagesLength"
+    [pageSize]="3"
     aria-label="Select page of GitHub search results"
   ></mat-paginator>
   <div class="message-table-container">

@@ -1,5 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {
+  redirectUnauthorizedTo,
+  redirectLoggedInTo,
+  canActivate,
+} from '@angular/fire/compat/auth-guard';
+
+const redirectUnauthorizedToHome = () => redirectUnauthorizedTo(['/']);
+const redirectLoggedInToHome = () => redirectLoggedInTo(['/']);
 
 const routes: Routes = [
   {
@@ -36,6 +44,15 @@ const routes: Routes = [
       import('src/app/pages/messages/messages-page.module').then(
         (m) => m.MessagesPageModule
       ),
+    ...canActivate(redirectUnauthorizedToHome),
+  },
+  {
+    path: 'auth',
+    loadChildren: () =>
+      import('src/app/pages/auth-page/auth-page.module').then(
+        (m) => m.AuthPageModule
+      ),
+    ...canActivate(redirectLoggedInToHome),
   },
 ];
 
