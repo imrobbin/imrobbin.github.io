@@ -10,9 +10,9 @@
 // have to load a single css file for Angular Material in your app.
 
 // Fonts
-@import "https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp";
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap");
+// @import "https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp";
+// // @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+// // @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap");
 
 $fontConfig: (
   display-4: mat.define-typography-level(110px, 112px, 700, "Poppins", 0.0727em),
@@ -283,7 +283,7 @@ body {
 }
 body {
   margin: 0;
-  font-family: Poppins, "Open Sans", sans-serif;
+  font-family: "Poppins", "Open Sans", sans-serif;
 }
 
 ::selection {
