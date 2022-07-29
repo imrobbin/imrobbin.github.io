@@ -57,7 +57,7 @@
                 }
               ],
               "outputHashing": "all",
-              "baseHref": "/imrobbin/"
+              "baseHref": "/imrobbin.github.io/"
             },
             "development": {
               "buildOptimizer": false,
