@@ -47,7 +47,7 @@ export class AppComponent implements OnInit, OnDestroy {
             this.paths.push({
               url: 'messages',
               label: 'Messages',
-              icon: 'mail',
+              icon: 'chat',
             });
           } else if (authState === false && this.paths.length === 5) {
             this.paths.pop();

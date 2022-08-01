@@ -10,27 +10,20 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { AuthPageComponent } from './auth-page.component';
 import { MessagesPageComponent } from '../messages/messages-page.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [AuthPageComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild([
-      { path: '', component: AuthPageComponent },
-      // {
-      //   path: 'messages',
-      //   loadChildren: () =>
-      //     import('src/app/pages/messages/messages-page.module').then(
-      //       (m) => m.MessagesPageModule
-      //     ),
-      // },
-    ]),
+    RouterModule.forChild([{ path: '', component: AuthPageComponent }]),
     ReactiveFormsModule,
     FlexLayoutModule,
     MatFormFieldModule,
     MatProgressBarModule,
     MatInputModule,
     MatButtonModule,
+    MatIconModule,
   ],
 })
 export class AuthPageModule {}

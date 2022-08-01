@@ -1,4 +1,4 @@
-<main>
+<main [ngStyle.lt-md]="{ padding: '64px 16px' }">
   <section class="title-section">
     <span class="mat-display-4 uppercase title-bg"> Contact </span>
     <span class="mat-display-3 uppercase no-margin">
@@ -75,6 +75,12 @@
             <input matInput formControlName="subject" type="text" />
             <mat-error *ngIf="errorHandling('subject', 'required')">
               Please provide a subject.
+            </mat-error>
+            <mat-error *ngIf="errorHandling('subject', 'minlength')">
+              Subject must be at least 10 characters long.
+            </mat-error>
+            <mat-error *ngIf="errorHandling('subject', 'maxlength')">
+              Subject must be less than 50 characters long.
             </mat-error>
           </mat-form-field>
 

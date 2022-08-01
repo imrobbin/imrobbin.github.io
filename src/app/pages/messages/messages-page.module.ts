@@ -10,11 +10,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDividerModule } from '@angular/material/divider';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [MessagesPageComponent],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     RouterModule.forChild([{ path: '', component: MessagesPageComponent }]),
     MatProgressSpinnerModule,
     MatTableModule,
@@ -23,6 +28,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatButtonModule,
     MatToolbarModule,
     MatDividerModule,
+    MatInputModule,
+    MatIconModule,
+    MatMenuModule,
     FlexLayoutModule,
   ],
 })

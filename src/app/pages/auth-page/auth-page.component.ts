@@ -13,6 +13,7 @@ import { ToastService } from 'src/app/core/services/toast.service';
 export class AuthPageComponent implements OnInit {
   formLogin: FormGroup;
   isSubmitting = false;
+  showPassword = true;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -46,7 +47,6 @@ export class AuthPageComponent implements OnInit {
       } else {
         this.toastService.showToastMessage(error.message);
       }
-
       this.formLogin.enable();
     } finally {
       this.isSubmitting = false;

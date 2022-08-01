@@ -1,80 +1,84 @@
-/* Structure */
-.example-container {
-  position: relative;
-  margin: 40px auto;
-  max-height: calc(100vh - 80px);
-}
-
-.example-table-container {
-  position: relative;
-  min-height: 200px;
-  max-height: calc(100vh - 150px);
-  overflow: auto;
-}
-
 table {
   width: 100%;
 }
 
-.example-loading-shade {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 56px;
-  right: 0;
-  background: rgba(0, 0, 0, 0.15);
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+// to create a gap b/w 2 columns
+th.mat-header-cell:not(last-of-type),
+td.mat-cell:not(last-of-type),
+td.mat-footer-cell:not(last-of-type) {
+  padding-right: 24px;
 }
 
-.example-rate-limit-reached {
-  max-width: 360px;
-  text-align: center;
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+  margin-bottom: 0;
+
+  ::ng-deep .mat-form-field-wrapper {
+    padding: 0 !important;
+  }
+
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-flex {
+    height: 40px !important;
+  }
+
+  ::ng-deep .mat-form-field-appearance-outline {
+    padding: 0 !important;
+  }
+
+  ::ng-deep .mat-form-field-infix {
+    padding: 12px 0 !important;
+    border-top: 4px solid transparent !important;
+  }
 }
 
 /* Column Widths */
-.mat-column-number,
-.mat-column-state {
-  min-width: 96px;
+.mat-column-email {
+  min-width: 120px;
 }
 
-.mat-column-created {
-  min-width: 136px;
+.mat-column-name {
+  min-width: 104px;
+}
+
+.mat-column-created_at {
+  min-width: 96px;
 }
 
 /* Structure */
 .message-container {
-  position: relative;
-  margin: 40px auto;
   max-height: calc(100vh - 80px);
 }
 
-.message-table-container {
-  position: relative;
-  min-height: 200px;
-  max-height: calc(100vh - 150px);
-  overflow: auto;
+.message-toolbar-container {
+  margin: 40px auto;
 }
 
-.message-table {
+.message-table-container {
   width: 100%;
+  height: calc(100vh - 300px);
+  overflow: auto;
 }
 
 .message-loading-shade {
   position: absolute;
   top: 0;
   left: 0;
-  bottom: 56px;
+  bottom: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.15);
-  z-index: 1;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.toolbar-spacer {
-  flex: 1 1 auto;
+.mat-row .mat-cell {
+  cursor: pointer;
+  transition: all 0.6s;
+}
+
+.mat-row:hover .mat-cell {
+  box-shadow: inset 0px 8px 8px -10px #ffb40066,
+    inset 0px -8px 8px -10px #ffb40066;
 }

@@ -21,7 +21,14 @@ export class ContactPageComponent implements OnInit, OnDestroy {
     this.formContactMe = this.formBuilder.group({
       name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      subject: ['', [Validators.required]],
+      subject: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(10),
+          Validators.maxLength(50),
+        ],
+      ],
       message: ['', [Validators.required, Validators.minLength(15)]],
     });
   }
@@ -46,7 +53,6 @@ export class ContactPageComponent implements OnInit, OnDestroy {
       this.toastService.showToastMessage(response.message);
       this.formContactMe.reset();
     } catch (error) {
-      console.log(error);
       this.toastService.showToastMessage(error as string);
     } finally {
       this.isSubmitting = false;

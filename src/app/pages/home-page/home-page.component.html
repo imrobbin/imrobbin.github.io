@@ -1,24 +1,10 @@
-<!-- https://iuri.is/about -->
-<!-- https://jackthenomad.com/coding-is-not-an-art-its-engineering-e95c2eead1ea -->
-<!-- https://mattfarley.ca/ -->
-<!-- https://tunis.ibthemespro.com/home-dark -->
-
-<!---
-  below pattern is followed
-  1. common styles
-  2. row layout
-  3. row layout styles
-  4. column (lt-md to divide into column) layout
-  5. column layout styles
-
--->
-
 <main
   fxLayout="row wrap"
   fxLayoutGap="0px grid"
   fxLayout.lt-md="column"
   fxLayoutAlign.gt-sm="center center"
   [ngStyle.gt-sm]="{ height: '100vh' }"
+  [ngStyle.lt-md]="{ padding: '64px 16px' }"
 >
   <div fxFlex="40%" fxLayoutAlign="center center">
     <div

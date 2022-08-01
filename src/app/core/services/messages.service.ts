@@ -8,12 +8,12 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 export interface IMessage {
-  id?: String;
-  name: String;
-  email: String;
-  subject: String;
-  message: String;
-  created_at: Date;
+  id?: string;
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+  created_at: any;
 }
 
 @Injectable({
@@ -21,48 +21,40 @@ export interface IMessage {
 })
 export class MessagesService {
   private messagesCollection: AngularFirestoreCollection<IMessage>;
-  // messages: Observable<IMessage[]> | undefined;
+  messagesDataSource$: Observable<IMessage[]> | undefined;
 
   constructor(private readonly firestore: AngularFirestore) {
     this.messagesCollection = this.firestore.collection<IMessage>('messages');
   }
 
-  public getMessages(
-    sort: string,
-    order: SortDirection,
-    page: number
-  ): Observable<any> {
-    return this.messagesCollection
-      .valueChanges()
-      .pipe(map((messages) => messages));
+  public getMessages(): Observable<any> {
+    if (this.messagesDataSource$ === undefined) {
+      console.log('fresh data');
+      this.messagesDataSource$ = this.messagesCollection
+        .valueChanges()
+        .pipe(map((messages) => messages));
+      return this.messagesDataSource$;
+    }
+    console.log('cached data');
+    return this.messagesDataSource$;
   }
-
-  // public addMessage = (messageData: IMessage) => {
-  //   console.log(messageData);
-  //   const docId = this.firestore.createId();
-  //   const message: IMessage = { id: docId, ...messageData };
-  //   this.messagesCollection.doc(docId).set(message);
-  // };
 
   public addMessage = (messageData: IMessage): Promise<any> => {
     return new Promise(async (resolve, reject) => {
       const docId = this.firestore.createId();
-      const createdAt = new Date();
       const data: IMessage = {
         id: docId,
         ...messageData,
-        created_at: createdAt,
+        created_at: new Date(),
       };
 
       try {
         await this.messagesCollection.doc(docId).set(data);
-        console.log('Contact form data ', data);
         return resolve({
           message:
             'Your message has been successfully sent. We will contact you very soon!',
         });
       } catch (error) {
-        console.log(error);
         return reject(error);
       }
     });

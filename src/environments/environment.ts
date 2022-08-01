@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://api.github.com/users/imrobbin/repos',
+  // apiUrl: 'https://api.github.com/users/imrobbin/repos',
+  apiUrl: 'https://api.github.com/search/repositories?q=user:imrobbin',
   firebaseConfig: {
     apiKey: 'AIzaSyC4IyyNmz3mXG7p0pAdeIJuwgUmjUsCBHY',
     authDomain: 'dev-imrobbin.firebaseapp.com',
@@ -14,6 +15,7 @@ export const environment = {
     appId: '1:949491206765:web:eed313949accab9cef8d64',
     measurementId: 'G-K1MQXE52YP',
   },
+  gitHubToken: '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',
 };
 
 /*

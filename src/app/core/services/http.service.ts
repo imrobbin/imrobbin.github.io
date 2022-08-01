@@ -1,16 +1,18 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class HttpService {
-  private baseURL: string = environment.apiUrl;
   constructor(private httpClient: HttpClient) {}
 
-  public get(endPoint: string = ''): Observable<any> {
-    return this.httpClient.get(this.baseURL).pipe(
+  public get(endPoint: string): Observable<any> {
+    const headers = new HttpHeaders({
+      Authorization: `token ${environment.gitHubToken}`,
+    });
+    return this.httpClient.get(endPoint, { headers: headers }).pipe(
       catchError(this.errorHandler<any>('get ', null)),
       map((response) => {
         return response;

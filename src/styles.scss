@@ -10,7 +10,7 @@
 // have to load a single css file for Angular Material in your app.
 
 // Fonts
-// @import "https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp";
+@import "https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp";
 // // @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 // // @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap");
 
@@ -292,7 +292,8 @@ body {
 }
 
 .mobileContainer {
-  padding: 64px 16px;
+  // padding: 64px 16px;
+  // padding: 0 16px;
   overflow: hidden;
 }
 
@@ -306,7 +307,7 @@ body {
 }
 
 .no-margin {
-  margin: 0;
+  margin: 0 !important;
 }
 
 .uppercase {
